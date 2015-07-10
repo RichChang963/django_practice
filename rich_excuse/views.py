@@ -1,14 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import random
+from rich_excuse.models import Excuse
 
 def home(request):
-    rich_excuses = [
-        "It was working in my head",
-        "I thought I fixed that",
-        "Actually, that is a feature",
-        "It works on my machine",
-    ]
-
-    excuse = random.choice(rich_excuses)
-    return render(request, "index.html", {'excuse': excuse.upper()})
+    	excuse = Excuse.objects.all().order_by('?')[0]
+	return render(request, "index.html", {'excuse': excuse})

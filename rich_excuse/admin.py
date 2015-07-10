@@ -1,3 +1,4 @@
 from django.contrib import admin
+from rich_excuse.models import Excuse
 
-# Register your models here.
+admin.site.register(Excuse)
